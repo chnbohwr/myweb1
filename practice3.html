@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="lib/iioEngine.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var game = function (io) {
+            //設定每秒影格
+            io.setFramerate(30);
+            //初始化方塊
+            var pig = new iio.Rect(io.canvas.center, 50);
+            //開啟動畫功能
+            pig.enableKinematics();
+            //設定旋轉角度
+            pig.setTorque(.05);
+            //讀取影像
+            pig.addImage('img/pig.png', function () {
+                //讀取完畢加入畫面
+                io.addObj(pig);
+            });
+
+        };
+        //啟動遊戲
+        iio.start(game);
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="lib/iioEngine.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var game = function (io) {
+            io.setFramerate(30);
+            //讀取8張影像到陣列裡面
+            var imgs = [];
+            for (var i = 1; i <= 8; i++) {
+                imgs.push('img/orange/idle/frame-' + i + '.png');
+            }
+            //初始化影像
+            var orange = new iio.Rect(io.canvas.center, 200);
+            orange.createWithAnim(imgs);
+
+            //設定五格就更新一次畫面
+            io.setFramerate(5, function () {
+                orange.nextAnimFrame();
+            });
+            io.addObj(orange);
+        };
+        //啟動遊戲
+        iio.start(game);
+    </script>
+
+
+</body>
+
+</html>

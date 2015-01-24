@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="lib/iioEngine.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var game = function (io) {
+            //做綠色方塊
+            var rect_green = new iio.Rect(io.canvas.center, 100, 100);
+            rect_green.setFillStyle('green');
+            //開啟動畫功能
+            rect_green.enableKinematics();
+            //設定每次更新旋轉角度
+            rect_green.setTorque(.15);
+            //畫布設定每秒更新30張
+            io.setFramerate(30);
+            //塞進畫部裡面
+            io.addObj(rect_green);
+        };
+        //啟動遊戲
+        iio.start(game);
+    </script>
+</body>
+
+</html>

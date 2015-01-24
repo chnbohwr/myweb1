@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>testgame1</title>
+</head>
+<script src="lib/iioEngine.min.js"></script>
+
+<body>
+    <script>
+        //定義啟動以後所要做的事情
+        var Helloiio = function (io) {
+            //畫面上加入文字物件
+            io.addObj(new iio.Text('this is my first iio', io.canvas.center)
+                .setFont('30px Consolas')
+                .setTextAlign('center')
+                .setFillStyle('black'));
+            //定義一個 藍色的 box 起始點為中心點 寬度為60 高度120 
+            var bluebox = new iio.Rect(io.canvas.center, 60, 120).setFillStyle('blue');
+            io.addObj(bluebox);
+        };
+
+        //啟動
+        iio.start(Helloiio);
+    </script>
+
+
+</body>
+
+</html>

@@ -9,10 +9,13 @@
 
 <body>
     <script>
-        var hello = function (app, s) {
-            app.add('hello');
+        Helloiio = function (io) {
+            io.addObj(new iio.Text('Hello iio!!', io.canvas.center)
+                .setFont('30px Consolas')
+                .setTextAlign('center')
+                .setFillStyle('black'));
         };
-        iio.start(hello);
+        iio.start(Helloiio);
     </script>
 
 
